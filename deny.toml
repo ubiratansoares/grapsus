@@ -1,0 +1,14 @@
+# Copyright 2026 Dotanuki Labs
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+[advisories]
+ignore = []
+
+[licenses]
+confidence-threshold = 0.95
+allow = [
+    "Apache-2.0",
+    "MIT",
+    "Unicode-3.0"
+]
+
