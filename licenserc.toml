@@ -1,0 +1,20 @@
+# Copyright 2026 Dotanuki Labs
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+inlineHeader = """
+Copyright {{props["inceptionYear"]}} {{props["copyrightOwner"]}}
+SPDX-License-Identifier: {{props["licenseSPDX"]}}
+"""
+
+includes = [
+    "Dockerfile",
+    "**/*.rs",
+    "**/*.yml",
+    "**/*.toml",
+    "**/*.sh",
+]
+
+[properties]
+inceptionYear = 2026
+copyrightOwner = "Dotanuki Labs"
+licenseSPDX = "AGPL-3.0-or-later"

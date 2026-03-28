@@ -1,0 +1,13 @@
+# Copyright 2026 Dotanuki Labs
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+[target.x86_64-unknown-linux-musl]
+linker = "rust-lld"
+rustflags = ["-Ctarget-feature=+crt-static"]
+
+[target.aarch64-unknown-linux-musl]
+linker = "rust-lld"
+rustflags = ["-Ctarget-feature=+crt-static"]
+
+[alias]
+xtasks = "run --manifest-path ./crates/xtasks/Cargo.toml --"

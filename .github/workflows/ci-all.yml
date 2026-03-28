@@ -1,0 +1,39 @@
+# Copyright 2026 Dotanuki Labs
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: ci
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  compliance:
+    uses: ./.github/workflows/ci-compliance.yml
+    permissions:
+      contents: read
+
+  docker:
+    needs: compliance
+    uses: ./.github/workflows/ci-docker.yml
+    permissions:
+      contents: read
+
+  rust:
+    needs: compliance
+    uses: ./.github/workflows/ci-rust.yml
+    permissions:
+      contents: read
+
+  all-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    needs: [compliance, rust, docker]
+    steps:
+      - name: Report success
+        run: echo "Great job ✅"
